@@ -10,11 +10,11 @@ public class UserController {
 
 	@GetMapping("/toLogin")
 	public String toLogin() {
-		return "login";
+		return "user/login";
 	}
 	
 	@GetMapping("/toSignup")
 	public String toSignup() {
-		return "signup";
+		return "user/signup";
 	}
 }
