@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" class="h-100">
+
+<head>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+		<meta name="generator" content="Hugo 0.84.0">
+		<title>EC site</title>
+
+		<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+
+
+		<!-- Bootstrap core CSS -->
+		<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link th:href="@{/css/signin.css}" rel="stylesheet">
+	</head>
+
+<body class="h-100 py-4 d-flex align-items-center">
+
+	<main class="w-100 p-3 mx-auto" style="max-width: 400px;">
+		<form>
+			<h1 class=" h3 mb-3 fw-normal text-center">ユーザー登録</h1>
+
+			<div class="mb-3">
+				<label for="name" class="mb-1">名前</label> <input type="text" class="form-control" placeholder="山田 太郎" id="name">
+			</div>
+			<div class="mb-3">
+				<label for="email">メールアドレス</label> <input type="email" class="form-control" placeholder="sample@example.com"
+					id="email">
+			</div>
+			<div class="mb-3">
+				<label for="password">パスワード</label> <input type="password" class="form-control" placeholder="8文字以上16文字以内"
+					id="password">
+			</div>
+			<div class="mb-3">
+				<label for="confirmPassword">確認用パスワード</label> <input type="password" class="form-control" id="confirmPassword">
+			</div>
+			<div class="text-center">
+				<button class="btn btn-lg btn-primary w-50" type="submit">登録</button>
+			</div>
+		</form>
+		<p class="mt-5 mb-3 text-muted text-center">&copy; 2022 by Keisuke Isoda.</p>
+	</main>
+
+
+
+</body>
+
+</html>

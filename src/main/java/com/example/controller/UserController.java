@@ -6,10 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/auth")
-public class LoginController {
+public class UserController {
 
-	@GetMapping("/login")
+	@GetMapping("/toLogin")
 	public String toLogin() {
 		return "login";
+	}
+	
+	@GetMapping("/toSignup")
+	public String toSignup() {
+		return "signup";
 	}
 }
