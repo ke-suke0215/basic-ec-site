@@ -66,6 +66,10 @@ public class UserController {
 	 */
 	@PostMapping("/signup")
 	public String signup(@Validated SignupForm form, BindingResult result) {
+		System.out.println("ポストリクエスト送られてきました.");
+		if(!form.getConfirmPassword().equals(form.getPassword())) {
+			result.rejectValue("confirmPassword", null, "パスワードが一致しません");
+		}
 		if(result.hasErrors()) {
 			return toSignup();
 		}
