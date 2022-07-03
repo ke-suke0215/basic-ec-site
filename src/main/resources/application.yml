@@ -1,11 +1,11 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/student
+    url: jdbc:postgresql://localhost:5432/basic-ec-site
     username: postgres
     password: postgres
   jmx:
-    default-domain: basic-ec
+    default-domain: basic-ec-site
 server:
   servlet:
-    context-path: /basic-ec
+    context-path: /basic-ec-site
