@@ -1,5 +1,8 @@
 package com.example.controller;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @Controller
-@RequestMapping("/auth")
+@RequestMapping("/user")
 public class UserController {
+
+	@Autowired
+	private HttpSession session;
 
 	/**
 	 * ログイン画面を表示します.
@@ -32,5 +38,17 @@ public class UserController {
 	@GetMapping("/toSignup")
 	public String toSignup() {
 		return "user/signup";
+	}
+	
+	/**
+	 * ログアウトする.
+	 * 
+	 * @return 商品一覧画面
+	 */
+	@GetMapping("/logout")
+	public String logout() {
+
+		session.invalidate();
+		return "redirect:/";
 	}
 }
