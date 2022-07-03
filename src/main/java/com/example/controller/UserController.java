@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @Controller
-@RequestMapping("/auth")
+@RequestMapping("/user")
 public class UserController {
 
 	/**
