@@ -1,0 +1,50 @@
+package com.example.repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.stereotype.Repository;
+
+import com.example.domain.User;
+
+/**
+ * ユーザーテーブルを操作します.
+ * 
+ * @author isodakeisuke
+ *
+ */
+@Repository
+public class UserRepository {
+	
+	/**
+	 * ユーザーオブジェクトを作成するローマッパー
+	 */
+	private static final RowMapper<User> USER_ROW_MAPPER = (rs, i) -> {
+		User user = new User();
+		user.setId(rs.getInt("id"));
+		user.setName(rs.getString("name"));
+		user.setEmail(rs.getString("email"));
+		user.setPassword(rs.getString("password"));
+		return user;
+	};
+	
+	@Autowired
+	private NamedParameterJdbcTemplate template;
+
+	/**
+	 * ユーザー情報を登録or更新します.
+	 * @param user
+	 */
+	public void save(User user) {
+		SqlParameterSource param = new BeanPropertySqlParameterSource(user);
+		String sql = null;
+		if(user.getId() == null) {
+			sql = "INSERT INTO users(name, email, password) VALUES (:name, :email, :password);";
+		} else {
+			sql = "UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id";			
+		}
+		template.update(sql, param);
+	}
+}
