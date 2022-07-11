@@ -22,17 +22,25 @@
 <body class="h-100 py-4 d-flex align-items-center">
 
   <main class="w-100 p-3 mx-auto" style="max-width: 400px;">
-    <form>
+    <form method="post" action="../item/item-list.html" th:action="@{/user/login}">
       <h1 class="text-center h3 mb-3 fw-normal">ログイン</h1>
-      <div class="mb-3">
-        <label for="email">メールアドレス</label> <input type="email" class="form-control" id="email">
+      <div class="form-group">
+        <div class="alert alert-danger" th:if="${errorMessage}">
+          <p th:text="${errorMessage}">メールアドレスまたはパスワードが間違っています</p>
+        </div>
       </div>
       <div class="mb-3">
-        <label for="password">パスワード</label> <input type="password" class="form-control" id="password">
+        <label for="email">メールアドレス</label>
+        <input type="email" class="form-control" id="email" name="email">
       </div>
-      <div class="text-center">
+      <div class="mb-3">
+        <label for="password">パスワード</label>
+        <input type="password" class="form-control" id="password" name="password">
+      </div>
+      <div class="text-center mb-3">
         <button class="btn btn-lg btn-primary w-50" type="submit">ログイン</button>
       </div>
+      <a href="insert.html" th:href="@{/user/toSignup}">ユーザー登録</a>
     </form>
     <p class="mt-5 mb-3 text-muted text-center">&copy; 2022 by Keisuke Isoda.</p>
   </main>
