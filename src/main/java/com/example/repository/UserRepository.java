@@ -1,8 +1,11 @@
 package com.example.repository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
@@ -46,5 +49,22 @@ public class UserRepository {
 			sql = "UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id";			
 		}
 		template.update(sql, param);
+	}
+	
+	/**
+	 * メールアドレスからユーザーを検索します.
+	 * 
+	 * @param email メールアドレス
+	 * @return ユーザー情報（該当するユーザーがいない場合はnull
+	 */
+	public User findByEmail(String email) {
+		String sql = "select id, name, email, password from users where email = :email";
+		SqlParameterSource param = new MapSqlParameterSource().addValue("email", email);
+		List<User> userList = template.query(sql, param, USER_ROW_MAPPER);
+		
+		if(userList.size() == 0) {
+			return null;
+		}
+		return userList.get(0);
 	}
 }
