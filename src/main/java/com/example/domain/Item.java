@@ -16,7 +16,7 @@ public class Item {
 	/* 値段 */
 	private Integer price;
 	/* 画像のパス */
-	private String image_path;
+	private String imagePath;
 	/* 削除の真偽値 */
 	private Boolean deleted;
 
@@ -47,17 +47,21 @@ public class Item {
 	public Integer getPrice() {
 		return price;
 	}
+	
+	public Integer getPriceTaxIn() {
+		return (int) Math.floor(price * 1.1);
+	}
 
 	public void setPrice(Integer price) {
 		this.price = price;
 	}
 
-	public String getImage_path() {
-		return image_path;
+	public String getImagePath() {
+		return imagePath;
 	}
 
-	public void setImage_path(String image_path) {
-		this.image_path = image_path;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	public Boolean getDeleted() {
@@ -71,7 +75,7 @@ public class Item {
 	@Override
 	public String toString() {
 		return "Item [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
-				+ ", image_path=" + image_path + ", deleted=" + deleted + "]";
+				+ ", imagePath=" + imagePath + ", deleted=" + deleted + "]";
 	}
 
 }
