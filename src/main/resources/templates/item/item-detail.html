@@ -22,7 +22,7 @@
     <h2 class="py-5">商品詳細</h2>
     <h3 th:text="${item.name}">美味しいパスタ</h3>
     <p th:text="${item.description}">説明文</p>
-    <h4><span th:text="${item.price}">700</span>円</h4>
+    <h4><span th:text="${item.priceTaxIn}">700</span>円</h4>
     <img src="../../static/img/24136901_s.jpg" th:src="@{/img/24136901_s.jpg}" class="card-img-top mb-4" alt="商品画像"
       style="max-width: 400px">
     <h4>個数を選択</h4>
