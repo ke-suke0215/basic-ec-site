@@ -22,11 +22,11 @@
     <h2 class="py-5">商品詳細</h2>
     <h3 th:text="${item.name}">美味しいパスタ</h3>
     <p th:text="${item.description}">説明文</p>
-    <h4><span th:text="${item.priceTaxIn}">700</span>円</h4>
+    <h4><span th:text="${item.priceTaxIn}" id="item-price">700</span>円</h4>
     <img src="../../static/img/24136901_s.jpg" th:src="@{/img/24136901_s.jpg}" class="card-img-top mb-4" alt="商品画像"
       style="max-width: 400px">
     <h4>個数を選択</h4>
-    <select class="form-select mb-4" aria-label="Default select example" style="width: 70px">
+    <select class="form-select mb-4" aria-label="Default select example" style="width: 70px" id="item-amount">
       <option value="1" selected>1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -38,10 +38,15 @@
       <option value="9">9</option>
       <option value="10">10</option>
     </select>
-    <h4>合計<span>700</span> 円</h4>
+    <h4>合計<span id="total-price">700</span> 円</h4>
     <a href="#" class="btn btn-primary">カートに追加</a>
 
   </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script th:src="@{/js/item-detail.js}"></script>
+
 </body>
 
 </html>
