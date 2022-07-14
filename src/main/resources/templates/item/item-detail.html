@@ -18,6 +18,8 @@
 </head>
 
 <body>
+  <header th:replace="header :: header-fragment"></header>
+
   <div class="container">
     <h2 class="py-5">商品詳細</h2>
     <h3 th:text="${item.name}">美味しいパスタ</h3>

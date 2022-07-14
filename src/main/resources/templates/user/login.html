@@ -19,9 +19,10 @@
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
   </head>
 
-<body class="h-100 py-4 d-flex align-items-center">
+<body class="h-100 align-items-center">
+  <header th:replace="header :: header-fragment"></header>
 
-  <main class="w-100 p-3 mx-auto" style="max-width: 400px;">
+  <main class="w-100 p-3 pt-5 mx-auto" style="max-width: 400px;">
     <form method="post" action="../item/item-list.html" th:action="@{/user/login}">
       <h1 class="text-center h3 mb-3 fw-normal">ログイン</h1>
       <div class="form-group">
