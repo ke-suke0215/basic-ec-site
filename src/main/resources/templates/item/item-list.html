@@ -22,38 +22,18 @@
     <h2 class="py-5">商品一覧</h2>
     <!-- <div class="my-5 d-flex"> -->
     <div class="row row-cols-1 row-cols-md-3 g-4 item-content d-flex justify-content-center">
-      <div class="px-0 col-3 card" style="width: 18rem;">
-        <img src="../../static/img/24136901_s.jpg" th:src="@{/img/24136901_s.jpg}" class="card-img-top" alt="商品画像">
+      <div th:each="item : ${itemList}" class="px-0 col-3 card" style="width: 18rem;">
+        <img src="../../static/img/24136901_s.jpg" th:src="@{'/img/'} + ${item.imagePath}" class="card-img-top"
+          alt="商品画像">
         <div class="card-body text-center">
-          <h5 class="card-title">美味しパスタ</h5>
-          <p class="card-text">1000円（税込み）</p>
-          <a href="#" class="btn btn-primary">カートに追加</a>
+          <h5 class="card-title" th:text="${item.name}">美味しパスタ</h5>
+          <p class="card-text">
+            <span th:text="${item.priceTaxIn}">1000</span>円（税込）
+          </p>
+          <a href="./item-detail.html" th:href="@{/itemDetail?id=} + ${item.id}" class="btn btn-primary">商品詳細</a>
         </div>
       </div>
-      <div class="px-0 col-3 card" style="width: 18rem;">
-        <img src="../../static/img/24136901_s.jpg" th:src="@{/img/24136901_s.jpg}" class="card-img-top" alt="商品画像">
-        <div class="card-body text-center">
-          <h5 class="card-title">美味しパスタ</h5>
-          <p class="card-text">1000円（税込み）</p>
-          <a href="#" class="btn btn-primary">カートに追加</a>
-        </div>
-      </div>
-      <div class="px-0 col-3 card" style="width: 18rem;">
-        <img src="../../static/img/24136901_s.jpg" th:src="@{/img/24136901_s.jpg}" class="card-img-top" alt="商品画像">
-        <div class="card-body text-center">
-          <h5 class="card-title">美味しパスタ</h5>
-          <p class="card-text">1000円（税込み）</p>
-          <a href="#" class="btn btn-primary">カートに追加</a>
-        </div>
-      </div>
-      <div class="px-0 col-3 card" style="width: 18rem;">
-        <img src="../../static/img/24136901_s.jpg" th:src="@{/img/24136901_s.jpg}" class="card-img-top" alt="商品画像">
-        <div class="card-body text-center">
-          <h5 class="card-title">美味しパスタ</h5>
-          <p class="card-text">1000円（税込み）</p>
-          <a href="#" class="btn btn-primary">カートに追加</a>
-        </div>
-      </div>
+
     </div>
 
   </div>
