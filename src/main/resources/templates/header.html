@@ -15,8 +15,7 @@
         <a class="navbar-brand text-light" th:href="@{/}">ホーム</a>
         <span sec:authorize="!isAuthenticated()"><a class="navbar-brand text-light"
             th:href="@{/toLogin}">ログイン</a></span>
-        <span sec:authorize="isAuthenticated()"><a class="navbar-brand text-light"
-            th:href="@{/toLogin}">ログアウト</a></span>
+        <span sec:authorize="isAuthenticated()"><a class="navbar-brand text-light" th:href="@{/logout}">ログアウト</a></span>
 
       </div>
     </nav>
