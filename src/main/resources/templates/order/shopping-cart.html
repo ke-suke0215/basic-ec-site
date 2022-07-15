@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title>EC site</title>
+
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
+
+  <!-- Bootstrap core CSS -->
+  <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+
+<body>
+  <header th:replace="header :: header-fragment"></header>
+  <div class="container">
+    <h2 class="py-5">ショッピングカート</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 item-content d-flex justify-content-center mb-4">
+      <!-- <div th:each="item : ${itemList}" class="px-0 col-3 card" style="width: 18rem;"> -->
+      <div class="px-0 col-3 card" style="width: 18rem;">
+        <img src="../../static/img/24136901_s.jpg" class="card-img-top" alt="商品画像">
+        <!-- <img src="../../static/img/24136901_s.jpg" th:src="@{'/img/'} + ${item.imagePath}" class="card-img-top"
+          alt="商品画像"> -->
+        <div class="card-body text-center">
+          <h5 class="card-title">美味しいパスタ</h5>
+          <!-- <h5 class="card-title" th:text="${item.name}">美味しパスタ</h5> -->
+          <p class="card-text">
+            数量：<span>1</span>個
+            <!-- <span th:text="${item.priceTaxIn}">1000</span>円（税込） -->
+          </p>
+          <p class="card-text">
+            小計<span>1000</span>円（税込）
+            <!-- <span th:text="${item.priceTaxIn}">1000</span>円（税込） -->
+          </p>
+          <a href="#" class="btn btn-primary">削除</a>
+          <!-- <a href="./item-detail.html" th:href="@{/itemDetail?id=} + ${item.id}" class="btn btn-primary">商品詳細</a> -->
+        </div>
+      </div>
+    </div>
+    <h4>合計：<span>3000</span>円（税込）</h4>
+    <a th:href="@{/order/confirm}" class="btn btn-primary">注文確認に進む</a>
+  </div>
+</body>
+
+</html>
